@@ -1,0 +1,65 @@
+a {
+    font-weight: bold;
+    /*border-bottom: 1px #95856a solid;*/
+}
+
+main {
+    margin-top: 45px;
+}
+
+main section {
+    min-height: 550px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.valigned2 {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+section#home-section {
+    background-image: url("/images/coffee-2800-1600.jpg");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section#home-section h1 {
+    font-size: 3.5rem;
+}
+
+section#portfolio-section {
+    background-color: #DED7C3;
+    /*
+    background-image: url("/images/textures/stardust_tan.png");
+*/
+}
+
+section#portfolio-section .card .image i.icon {
+    font-size: 7em;
+    margin: -16px 0;
+    width: auto;
+    height: auto;
+    line-height: 2em;
+}
+
+section#portfolio-section .card .header {
+    display: inline-block;
+}
+
+section#about-section {
+    background-color: black;
+    background-image: url("/images/textures/darkdenim3.png");
+}
+
+section#contact-section {
+    background-color: #DFDFDD;
+   /* 
+    background-image: url("/images/textures/twinkle_twinkle.png");
+*/
+}

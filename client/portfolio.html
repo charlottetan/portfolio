@@ -1,0 +1,127 @@
+<head>
+    <title>Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <!-- main menu -->
+        <nav id="main-nav" class="ui large top fixed secondary pointing menu">
+            <div class="ui container">
+                <div class="right secondary pointing menu">
+                    {{> navItems}}
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- sidebar menu 
+        <nav class="ui vertical inverted sidebar menu">
+        {{> navItems}}
+        </nav>-->
+
+    </header>
+
+    <main>
+        <section id="home-section" class="ui vertical center aligned very padded basic segment">
+            <a class="anchor" name="home"></a>
+            <div class="ui text container valigned">
+                <h1 class="ui header">Chocolatt
+                    <div class="sub header">Web Engineer</div>
+                </h1>                
+            </div>
+        </section>
+
+        <section id="portfolio-section" class="ui vertical center aligned very padded basic segment">
+            <a class="anchor" name="portfolio"></a>
+            <div class="ui container valigned">
+                <h1 class="ui header">Portfolio</h1>
+
+                
+
+                        {{> portfolio}}
+                    
+
+
+
+            </div>
+        </section>
+
+        <section id="about-section" class="ui vertical center aligned very padded basic inverted segment">
+            <a class="anchor" name="about"></a>
+            <div class="ui text container valigned">
+                <h1 class="ui inverted header">About</h1>
+                <p>I am an excited web engineer based in the greater Seattle area.</p>
+
+                <p>I like cats.</p>
+
+                <p>And coffee.</p>
+            </div>
+        </section>
+
+        <section id="contact-section" class="ui vertical center aligned very padded basic segment">
+            <a class="anchor" name="contact"></a>
+            <div class="ui text container valigned">
+                <h1 class="ui header">Contact</h1>
+                <p>Get in touch with me!</p>
+                <a class="ui large primary button" href="{{ contact.linkedIn }}">
+                    <i class="linkedin icon"></i>
+                    LinkedIn
+                </a>
+
+                <a class="ui large primary button" href="{{ contact.stackOverflow }}">
+                    <i class="stack overflow icon"></i>
+                    Stack Overflow
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+
+<template name="portfolio">
+    <div class="ui stackable three column relaxed grid">
+
+        {{ #each tasks }}
+        <div class="column">
+            <div class="ui card">
+            <div class="image">
+                {{ #if img }}
+                    <img src="{{ img }}">
+                {{ else }}
+                    <i class="code icon"></i>
+                {{ /if }}
+            </div>
+            <div class="left aligned content">
+                <a class="header" href="{{ url }}">{{ title }}</a>
+                <div class="meta">
+                    <i class="lab icon"></i>
+                    {{ techToString tech }}
+                </div>
+                <div class="description">
+                    {{ desc }}
+                </div>
+            </div>
+            <div class="extra content">
+                {{ #if url }}
+                <span class="left floated">
+                    <a href="{{ url }}"><i class="laptop icon"></i> url</a>
+                </span>
+                {{ /if }}
+                {{ #if src }}
+                <span class="right floated">
+                    <a href="{{ src }}"><i class="github icon"></i> source</a>
+                </span>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+        {{ /each }}
+
+    </div>
+</template>
+
+<template name="navItems">
+    <a class="item active" href="#home">Home</a>
+    <a class="item" href="#portfolio">Portfolio</a>
+    <a class="item" href="#about">About</a>
+    <a class="item" href="#contact">Contact</a>
+</template>
