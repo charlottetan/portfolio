@@ -1,8 +1,9 @@
 if (Meteor.isClient) {
   Template.body.helpers({
     contact: {
-      linkedIn: 'https://www.linkedin.com/',
-      stackOverflow: 'http://stackoverflow.com/'
+      linkedIn: 'https://www.linkedin.com/in/charlottetan',
+      stackOverflow: 'http://stackoverflow.com/users/1498192/charlotte-tan',
+      github: 'https://github.com/charlottetan'
     }
   });
 
@@ -50,8 +51,6 @@ if (Meteor.isClient) {
       }
     ]
   });
-
-
 
 Template.navItems.rendered = function () {
   

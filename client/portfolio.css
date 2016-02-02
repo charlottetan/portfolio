@@ -1,6 +1,5 @@
 a {
     font-weight: bold;
-    /*border-bottom: 1px #95856a solid;*/
 }
 
 main {
@@ -8,25 +7,27 @@ main {
 }
 
 main section {
-    min-height: 550px;
+    min-height: 450px;
     display: flex;
     justify-content:center;
     align-items:center;
 }
 
-
-.valigned2 {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-}
-
-section#home-section {
+section#home-section .bg {
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+    position: fixed;
     background-image: url("/images/coffee-2800-1600.jpg");
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+    -webkit-transform: translateZ(0);
+    pointer-events: none;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 120% 50%;
+    background-color: white;
+    z-index: -1;
+    opacity: 1;
 }
 
 section#home-section h1 {

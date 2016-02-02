@@ -24,8 +24,9 @@
     <main>
         <section id="home-section" class="ui vertical center aligned very padded basic segment">
             <a class="anchor" name="home"></a>
-            <div class="ui text container valigned">
-                <h1 class="ui header">Chocolatt
+            <div class="bg"></div>
+            <div class="ui text container">
+                <h1 class="ui header">Charlotte Tan
                     <div class="sub header">Web Engineer</div>
                 </h1>                
             </div>
@@ -33,36 +34,27 @@
 
         <section id="portfolio-section" class="ui vertical center aligned very padded basic segment">
             <a class="anchor" name="portfolio"></a>
-            <div class="ui container valigned">
+            <div class="ui container">
                 <h1 class="ui header">Portfolio</h1>
-
-                
-
-                        {{> portfolio}}
-                    
-
-
-
+                {{> portfolio}}
             </div>
         </section>
 
         <section id="about-section" class="ui vertical center aligned very padded basic inverted segment">
             <a class="anchor" name="about"></a>
-            <div class="ui text container valigned">
+            <div class="ui text container">
                 <h1 class="ui inverted header">About</h1>
-                <p>I am an excited web engineer based in the greater Seattle area.</p>
+                <p>A web engineer based in the greater Seattle area with 6 years of experience, I have worked on the entire stack, ranging from CSS to backend services. I get most excited about building websites that engage users and tools that enable developers.</p>
 
-                <p>I like cats.</p>
-
-                <p>And coffee.</p>
+                <p>I like coffee!</p>
             </div>
         </section>
 
         <section id="contact-section" class="ui vertical center aligned very padded basic segment">
             <a class="anchor" name="contact"></a>
-            <div class="ui text container valigned">
+            <div class="ui text container">
                 <h1 class="ui header">Contact</h1>
-                <p>Get in touch with me!</p>
+                <p>Get in touch with me</p>
                 <a class="ui large primary button" href="{{ contact.linkedIn }}">
                     <i class="linkedin icon"></i>
                     LinkedIn
@@ -71,6 +63,11 @@
                 <a class="ui large primary button" href="{{ contact.stackOverflow }}">
                     <i class="stack overflow icon"></i>
                     Stack Overflow
+                </a>
+
+                <a class="ui large primary button" href="{{ contact.github }}">
+                    <i class="github icon"></i>
+                    Github
                 </a>
             </div>
         </section>
