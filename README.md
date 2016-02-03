@@ -30,6 +30,7 @@ Experiment with new frameworks.
 * There is a **huge** number of theming variables which are really helpful for customization.
 * The documentation could really use some work. It was really confusing and there wasn't enough examples.
 * I really liked the number and wide variety of components that was available.
+* It generates *a lot* of files. It can get cumbersome to keep track of what you modified and where, but for all the flexibility, I think it's worth it.
 
 ### General
 * Fixed backgrounds can cause your browser to lag because the entire div (or page) gets redrawn when you scroll. [Remy Sharp](https://remysharp.com/2013/06/07/insights-into-rendering-performance) provides an elegant solution to this issue.
