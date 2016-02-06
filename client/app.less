@@ -1,0 +1,69 @@
+@import "vars.less";
+@import "/client/lib/semantic-ui/themes/default/globals/site.variables.import.less";
+
+////////// styles //////////
+
+a {
+    font-weight: bold;
+}
+
+main {
+    margin-top: @nav-height;
+
+    section {
+        min-height: @segment-min-height;
+        display: flex;
+        justify-content:center;
+        align-items:center;
+
+        &#home-section {
+            .bg {
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                top: 0px;
+                position: fixed;
+                background-image: url(@home-bg-url);
+                -webkit-transform: translateZ(0);
+                pointer-events: none;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 120% 50%;
+                background-color: white;
+                z-index: -1;
+                opacity: 1;
+            }
+
+            h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        &#portfolio-section {
+            background-color: @tan;
+
+            .card {
+                .header {
+                    display: inline-block;
+                }
+
+                .image i.icon {
+                    font-size: 7em;
+                    margin: -16px 0;
+                    width: auto;
+                    height: auto;
+                    line-height: 2em;
+                }
+            }
+        }
+
+        &#about-section {
+            background-color: #383838;
+            background-image: url(@about-bg-url);
+        }
+
+        &#contact-section {
+            background-color: #DFDFDD;
+        }
+    }
+}
