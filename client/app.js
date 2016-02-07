@@ -1,4 +1,6 @@
 if (Meteor.isClient) {
+  Meteor.subscribe("projects");
+
   Template.body.helpers({
     contact: {
       linkedIn: 'https://www.linkedin.com/in/charlottetan',
@@ -13,14 +15,14 @@ if (Meteor.isClient) {
       return techArr.join(', ');
     },
     projects: function() {
-      return Projects.find();
+      return Projects.find({});
     }
   });
 
   Template.navItems.rendered = function () {
     // Cache selectors
     var lastId = null;
-    var topMenu = $("#main-nav .container .menu");
+    var topMenu = $("nav .container .menu");
     // All list items
     var menuItems = topMenu.find("a");
     // Anchors corresponding to menu items

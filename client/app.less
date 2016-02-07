@@ -1,5 +1,14 @@
 @import "vars.less";
-@import "/client/lib/semantic-ui/themes/default/globals/site.variables.import.less";
+@import "lib/semantic-ui/themes/default/globals/site.variables.import.less";
+
+////////// mixins //////////
+
+.aspect-ratio(@width; @height) {
+
+    padding-top: ((@height/2) / @width) * 100%;
+ 
+
+}
 
 ////////// styles //////////
 
@@ -17,21 +26,25 @@ main {
         align-items:center;
 
         &#home-section {
+            //.aspect-ratio(16, 9);
+            //min-height: 50%;
+
             .bg {
-                left: 0px;
-                right: 0px;
-                bottom: 0px;
-                top: 0px;
+                top: @nav-height;
+                left: 0;
+                width: 100%;
                 position: fixed;
                 background-image: url(@home-bg-url);
                 -webkit-transform: translateZ(0);
                 pointer-events: none;
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-position: 120% 50%;
+                background-position: 50% 50%;
                 background-color: white;
                 z-index: -1;
                 opacity: 1;
+                min-height: @segment-min-height;
+                //.aspect-ratio(16, 9);
             }
 
             h1 {
