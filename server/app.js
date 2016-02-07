@@ -10,7 +10,9 @@ if (Meteor.isServer) {
             src  : 'https://github.com/charlottetan/portfolio',
             tech : ['Meteor', 'Semantic UI'],
             desc : 'This site! Simple single page app to experiment with new frameworks.'
-          }, {
+          }
+
+          /*, {
             title: 'Portfolio', 
             url  : 'https://wwww.google.com',
             src  : 'https://wwww.google.com',
@@ -40,6 +42,7 @@ if (Meteor.isServer) {
             tech : ['Meteor', 'Semantic UI'],
             desc : 'This site! Simple single page app to experiment with new frameworks. more ipsum bacon is tasty.'
           }
+          */
         ];
 
         _.each(bootstrapData, function(doc) { 
