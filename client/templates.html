@@ -1,40 +1,42 @@
 <template name="portfolio">
-    <div class="ui stackable three column relaxed grid">
+    <div class="ui stackable three column centered relaxed grid">
 
         {{ #each projects }}
+        
         <div class="column">
             <div class="ui card">
-            <div class="image">
-                {{ #if img }}
-                    <img src="{{ img }}">
-                {{ else }}
-                    <i class="code icon"></i>
-                {{ /if }}
-            </div>
-            <div class="left aligned content">
-                <a class="header" href="{{ url }}">{{ title }}</a>
-                <div class="meta">
-                    <i class="lab icon"></i>
-                    {{ techToString tech }}
+                <div class="image">
+                    {{ #if img }}
+                        <img src="{{ img }}">
+                    {{ else }}
+                        <i class="code icon"></i>
+                    {{ /if }}
                 </div>
-                <div class="description">
-                    {{ desc }}
+                <div class="left aligned content">
+                    <a class="header" href="{{ url }}">{{ title }}</a>
+                    <div class="meta">
+                        <i class="lab icon"></i>
+                        {{ techToString tech }}
+                    </div>
+                    <div class="description">
+                        {{ desc }}
+                    </div>
                 </div>
-            </div>
-            <div class="extra content">
-                {{ #if url }}
-                <span class="left floated">
-                    <a href="{{ url }}"><i class="laptop icon"></i> url</a>
-                </span>
-                {{ /if }}
-                {{ #if src }}
-                <span class="right floated">
-                    <a href="{{ src }}"><i class="github icon"></i> source</a>
-                </span>
-                {{ /if }}
+                <div class="extra content">
+                    {{ #if url }}
+                    <span class="left floated">
+                        <a href="{{ url }}"><i class="laptop icon"></i> url</a>
+                    </span>
+                    {{ /if }}
+                    {{ #if src }}
+                    <span class="right floated">
+                        <a href="{{ src }}"><i class="github icon"></i> source</a>
+                    </span>
+                    {{ /if }}
+                </div>
             </div>
         </div>
-    </div>
+        
         {{ /each }}
 
     </div>
