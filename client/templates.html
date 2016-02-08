@@ -2,7 +2,7 @@
     <div class="ui stackable three column centered relaxed grid">
 
         {{ #each projects }}
-        
+
         <div class="column">
             <div class="ui card">
                 <div class="image">
@@ -35,6 +35,12 @@
                     {{ /if }}
                 </div>
             </div>
+        </div>
+
+        {{ else }}
+
+        <div class="column center aligned">
+            There was an issue loading the data, please try again.
         </div>
         
         {{ /each }}
