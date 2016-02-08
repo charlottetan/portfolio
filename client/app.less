@@ -2,16 +2,11 @@
 @import "lib/semantic-ui/themes/default/globals/site.variables.import.less";
 
 ////////// mixins //////////
-
 .aspect-ratio(@width; @height) {
-
     padding-top: ((@height/2) / @width) * 100%;
- 
-
 }
 
 ////////// styles //////////
-
 a {
     font-weight: bold;
 }
@@ -31,6 +26,7 @@ main {
             .bg {
                 top: @nav-height;
                 left: 0;
+                bottom: 0;
                 width: 100%;
                 position: fixed;
                 background-image: url(@home-bg-url);
@@ -42,7 +38,7 @@ main {
                 background-color: white;
                 z-index: -1;
                 opacity: 1;
-                min-height: @segment-min-height;
+                //min-height: @segment-min-height;
                 //.aspect-ratio(16, 9);
             }
 
