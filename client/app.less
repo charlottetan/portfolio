@@ -1,11 +1,6 @@
 @import "vars.less";
 @import "lib/semantic-ui/themes/default/globals/site.variables.import.less";
 
-////////// mixins //////////
-.aspect-ratio(@width; @height) {
-    padding-top: ((@height/2) / @width) * 100%;
-}
-
 ////////// styles //////////
 a {
     font-weight: bold;
@@ -49,8 +44,6 @@ main {
                 background-color: white;
                 z-index: -1;
                 opacity: 1;
-                //min-height: @segment-min-height;
-                //.aspect-ratio(16, 9);
             }
 
             .ui.container {
@@ -78,7 +71,7 @@ main {
 
                     i.icon {
                         font-size: 7em;
-                        margin: -16px 0;
+                        margin: 0;
                         width: auto;
                         height: auto;
                         line-height: 2em;
@@ -94,6 +87,10 @@ main {
 
         &#contact-section {
             background-color: #DFDFDD;
+
+            .button {
+                width: 14rem;
+            }
         }
     }
 }
