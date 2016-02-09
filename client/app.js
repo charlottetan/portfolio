@@ -9,6 +9,17 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.body.rendered = function() {
+    var bg = $(".bg");
+    $(window).resize("resizeBackground");
+
+    function resizeBackground() {
+        bg.height($(window).height());
+    }
+    
+    resizeBackground();
+  };
+
   Template.portfolio.helpers({
     techToString: function (techArr) {
       return techArr.join(', ');
