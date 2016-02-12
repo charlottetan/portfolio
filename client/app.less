@@ -1,4 +1,5 @@
 @import "vars.less";
+@import "lib/semantic-ui/definitions/globals/site.import.less";
 
 ////////// styles //////////
 a {
@@ -6,7 +7,7 @@ a {
 }
 
 nav.menu .ui.container .menu {
-    @media only screen and (max-width : @biggestMobileScreen) {
+    @media only screen and (max-width : @largestMobileScreen) {
         margin-left: auto;
         margin-right: auto;
     }
@@ -21,7 +22,7 @@ main {
         align-items:center;
         min-height: @segment-min-height;
 
-        @media only screen and (max-width : @biggestMobileScreen) {
+        @media only screen and (max-width : @largestMobileScreen) {
             min-height: @segment-min-height-mobile;
         }
 
@@ -44,7 +45,7 @@ main {
             }
 
             .ui.container {
-                @media only screen and (max-width : @biggestMobileScreen) {
+                @media only screen and (max-width : @largestMobileScreen) {
                     margin-left: 0.5em !important;
                     margin-right: 0.5em !important;
                 }
