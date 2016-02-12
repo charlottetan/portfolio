@@ -14,6 +14,8 @@ Experiment with new frameworks.
 
   Wanted to use something other than [Bootstrap](http://getbootstrap.com/) and liked that it focused on semantics and natural language.
 
+* [Heroku](https://www.heroku.com) - Cloud platform for deployment
+
 ## Notes
 
 ### Meteor
@@ -30,8 +32,13 @@ Experiment with new frameworks.
 * The documentation could really use some work. It was confusing and there wasn't enough examples.
 * I really liked the number and wide variety of components that was available.
 * It generates *a lot* of files. It can get cumbersome to keep track of what was modified and where, but is worth it for the flexibility it gives.
+* I started off having a `.gitignore` for Semantic-UI to avoid checking in generated files, but it caused issues with Heroku's buildpacks and had to be removed.
+
+### Deployment
+* The site was initially deployed on [charlottetan.meteor.com](http://charlottetan.meteor.com). Deployment was super easy and pain-free but the site takes awhile to spin up after it goes to sleep.
+* Heroku has no official support for Meteor at this time but has a number of Meteor buildpacks. I ended up using [jordansissel's](https://elements.heroku.com/buildpacks/jordansissel/heroku-buildpack-meteor).
 
 ### General
-* Fixed backgrounds can cause your browser to lag because the entire div (or page) gets redrawn when you scroll. [Remy Sharp](https://remysharp.com/2013/06/07/insights-into-rendering-performance) provides an elegant solution to this issue.
+* Fixed backgrounds can cause browsers to lag because the entire div (or page) gets redrawn during the scroll. [Remy Sharp](https://remysharp.com/2013/06/07/insights-into-rendering-performance) provides an elegant solution to this issue.
 * Some background images from [Subtle Patterns](http://subtlepatterns.com/).
 * Design is hard.
