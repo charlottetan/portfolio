@@ -18,6 +18,8 @@ if (Meteor.isClient) {
     }
     
     resizeBackground();
+
+    analytics.page('root');
   };
 
   Template.portfolio.helpers({
