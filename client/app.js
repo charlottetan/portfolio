@@ -61,17 +61,31 @@ if (Meteor.isClient) {
     $(window).scroll(function(){
        // Get container scroll position
        let fromTop = $(this).scrollTop();
+
+       let windowHeight = $(this).height();
+       let docHeight = $(document).height();
+       let bottomTolerance = 100;
        
        // Get id of current scroll item
-       let cur = scrollItems.map(function(){
-         if ($(this).offset().top < fromTop+46)
+       let candidates = scrollItems.map(function(){
+         if ($(this).offset().top < fromTop+46) {
            return this;
+         }
        });
+
+       // Get the last item in the list
+       let cur = candidates[candidates.length-1];
+
+       // check if we're near the bottom
+       if (fromTop + windowHeight > docHeight - bottomTolerance) {
+        // then actually it's the last item, because it never reaches the nav bar's height
+        cur = $(scrollItems[scrollItems.length-1]);
+       }
+
        // Get the id of the current element
-       cur = cur[cur.length-1];
        let id = cur && cur.length ? cur[0].id : "home-section";
        id = id.slice(0, id.indexOf('-'));
-       
+
        if (lastId !== id) {
            lastId = id;
            // Set/remove active class
