@@ -11,7 +11,7 @@ if (Meteor.isClient) {
 
   Template.body.rendered = function() {
     var bg = $(".bg");
-    $(window).resize("resizeBackground");
+    $(window).resize(resizeBackground);
 
     function resizeBackground() {
         bg.height($(window).height());
