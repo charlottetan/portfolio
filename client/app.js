@@ -46,12 +46,13 @@ if (Meteor.isClient) {
     let viewportTopTolerance = navMenuHeight;
     let viewportBottomTolerance = $(window).height() * 0.70;
 
-    // Because this is used for the jQuery collection filter,
-    // not the JS array filter
+    // arguments are (index, element) because this is used for the
+    // jQuery collection filter, not the JS array filter
     let isInView = function(index, element) {
+      // "screen top". element's top - what has been scrolled
       let elementTop = $(element).offset().top - $(window).scrollTop();
 
-      if (elementTop >= viewportTopTolerance && elementTop <= viewportBottomTolerance) {
+      if (viewportTopTolerance <= elementTop && elementTop <= viewportBottomTolerance) {
         return true;
       }
     };
