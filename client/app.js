@@ -10,11 +10,18 @@ if (Meteor.isClient) {
   });
 
   Template.body.rendered = function() {
-    var bg = $(".bg");
+    let bg = $(".bg");
+    let viewportHeight = document.documentElement.clientHeight;
+    let viewportHeightTolerance = 50;
+
     $(window).resize(resizeBackground);
 
     function resizeBackground() {
+      let newViewportHeight = document.documentElement.clientHeight;
+      if (Math.abs(newViewportHeight - viewportHeight) >= viewportHeightTolerance ) {
+        viewportHeight = newViewportHeight;
         bg.height($(window).height());
+      }
     }
     
     resizeBackground();
