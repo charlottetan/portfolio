@@ -10,22 +10,54 @@ if (Meteor.isClient) {
   });
 
   Template.body.rendered = function() {
+    // calculations and storing of vars
+    let largestMobileScreen = 767; // from semantic-ui
     let bg = $(".bg");
+    let sections = $('main section')
     let viewportHeight = document.documentElement.clientHeight;
-    let viewportHeightTolerance = 50;
+    let viewportHeightTolerance = 100;
+    let segmentMinHeight = 0.7 * viewportHeight;
+    let orientation = window.orientation;
 
-    $(window).resize(resizeBackground);
+    function resizeHeights() {
+      bg.height(viewportHeight);
+      sections.css('min-height', segmentMinHeight);
+    }
 
-    function resizeBackground() {
-      let newViewportHeight = document.documentElement.clientHeight;
-      if (Math.abs(newViewportHeight - viewportHeight) >= viewportHeightTolerance ) {
-        viewportHeight = newViewportHeight;
-        bg.height($(window).height());
+    function calcMinHeight() {
+      if ((document.documentElement.clientWidth < largestMobileScreen) && orientation === 0) {
+        segmentMinHeight = 0.5 * viewportHeight;
+      } else {
+        segmentMinHeight = 0.7 * viewportHeight;
       }
     }
-    
-    resizeBackground();
 
+    function resizeCheck(event) {
+      let newViewportHeight = document.documentElement.clientHeight;
+      let orientationChanged = false;
+
+      // we changed orientation
+      if (orientation !== window.orientation) {
+        orientationChanged = true;
+        orientation = window.orientation;
+      }
+
+      if (orientationChanged ||
+          Math.abs(newViewportHeight - viewportHeight) > viewportHeightTolerance) {
+
+        viewportHeight = newViewportHeight;
+        calcMinHeight();
+        resizeHeights();
+      }
+    }
+
+    // event listeners
+    $(window).resize(resizeCheck);
+    window.addEventListener("orientationchange", resizeCheck);
+    
+    // run these on load
+    calcMinHeight()
+    resizeHeights();
     analytics.page('root');
   };
 
