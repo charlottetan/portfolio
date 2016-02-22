@@ -9,90 +9,52 @@ nav.menu .ui.container .menu {
     }
 }
 
-/* reset the :after elements */
+/* set up selected item and hover effects */
 
-.menu {
-    position: relative;
-}
-
-.ui.menu:after {
-  display: initial;
-  height: initial;
-  clear: initial;
-  visibility: initial;
-}
-
-.ui.secondary.pointing.menu .item:after {
-  display: initial;
-}
-
-.ui.pointing.menu .item:after {
-  visibility: initial;
-  position: initial;
-  top: initial;
-  left: initial;
-  transform: initial;
-  background: initial;
-
-  margin: initial;
-  width: initial;
-  height: initial;
-
-  border: initial;
-  border-bottom: initial;
-  border-right: initial;
-
-  z-index: initial;
-  transition: initial;
-}
-
-.ui.pointing.menu .active.item:after {
-  visibility: initial;
-}
-
-.ui.pointing.menu .active.item .menu .active.item:after {
-  display: initial;
-}
-
-.ui.pointing.menu .active.item:hover:after, .ui.pointing.menu .active.item:focus:after {
-  background-color: initial;
-}
-.ui.pointing.menu .active.item:after {
-  background-color: initial;
-}
-
-/* set up what we want for the active item and hover effects */
-
-.ui.pointing.menu .active.item:after {
-    background-color: @black;
+.ui.pointing.menu .active.item .indicator,
+.ui.pointing.menu .active.item:hover .indicator,
+.ui.pointing.menu .item:hover .indicator {
     left: 10px;
     right: 10px;
 }
 
-.ui.pointing.menu .active.item:hover:after, .ui.pointing.menu .active.item:focus:after {
+/* cancel hover for tablets and mobile */
+@media only screen and (max-width : @largestMobileScreen) {
+    .ui.pointing.menu .item:hover .indicator {
+        left: 51%;
+        right: 50%;
+    }
+}
+
+.ui.pointing.menu .active.item .indicator,
+.ui.pointing.menu .active.item:hover .indicator {
   background-color: @black;
 }
 
-.ui.pointing.menu .item:after {
+.ui.pointing.menu .item:active .indicator {
+    background-color: darken(@gold, 12);
+}
+
+.ui.secondary.pointing.menu a.item:active {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ui.pointing.menu .item .indicator {
     position: absolute;
-    left: 50%;
+    left: 51%;  /* avoid px rounding errors */
     right: 50%;
-    bottom: 4px;
+    bottom: 5px;
     height: 2px;
     background-color: @gold;
-    -webkit-transition-duration: 0.3s;
-    -moz-transition-duration: 0.3s;
-    -ms-transition-duration: 0.3s;
-    -o-transition-duration: 0.3s;
-    transition-duration: 0.3s;
+    -webkit-transition-duration: @defaultDuration;
+    -moz-transition-duration: @defaultDuration;
+    -ms-transition-duration: @defaultDuration;
+    -o-transition-duration: @defaultDuration;
+    transition-duration: @defaultDuration;
     -webkit-transition-property: left, right;
     -moz-transition-property: left, right;
     -ms-transition-property: left, right;
     -o-transition-property: left, right;
     transition-property: left, right;
-}
-
-.ui.pointing.menu .item:hover:after, .ui.pointing.menu .item:focus:after {
-    left: 10px;
-    right: 10px;
 }

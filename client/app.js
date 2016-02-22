@@ -16,7 +16,7 @@ if (Meteor.isClient) {
     let sections = $('main section')
     let viewportHeight = document.documentElement.clientHeight;
     let viewportHeightTolerance = 100;
-    let segmentMinHeight = 0.7 * viewportHeight;
+    let segmentMinHeight = 0;
     let orientation = window.orientation;
 
     function resizeHeights() {
@@ -73,7 +73,7 @@ if (Meteor.isClient) {
 
   Template.navItems.rendered = function () {
     // Selectors
-    let lastId = null;
+    let currId = null;
     let topMenu = $("nav .container .menu");
     // All list items
     let menuItems = topMenu.find("a");
@@ -96,35 +96,50 @@ if (Meteor.isClient) {
       }
     };
 
+    let updateCurrId = function(newId) {
+      if (currId !== newId) {
+        currId = newId;
+        // Set/remove active class
+        menuItems
+          .removeClass("active")
+          .filter("[href=#"+newId+"]").addClass("active");
+      }
+    }
+
     // Bind click handler to menu items
     // so we can get a fancy scroll animation
     menuItems.click(function(e){
       let href = $(this).attr("href");
       let offsetTop = href === "#home" ? 0 : $(href + "-section").offset().top-navMenuHeight;
+      
       $('html, body').stop().animate({ 
           scrollTop: offsetTop
-      }, 300);
+      }, 300, function() {
+        // select the targeted link 
+        // slice removes the '#'
+        updateCurrId(href.slice(1, href.length));
+      });
       e.preventDefault();
     });
 
     // Bind to scroll
     $(window).scroll(function() {
-       // Get id of current scroll item
-       let sectionId = sections.filter(isInView).attr("id");
+      // scroll was triggered by <nav>
+      // <nav> will take care of updating the selected link
+      if ($('html, body').is(':animated')) {
+        return;
+      }
 
-       // if none, means no section top is in viewport
-       // so don't change the id
-       if (sectionId) {
+      // Get id of current scroll item
+      let sectionId = sections.filter(isInView).attr("id");
+
+      // if none, means no section top is in viewport
+      // so don't change the id
+      if (sectionId) {
         let navId = sectionId.slice(0, sectionId.indexOf('-'));
 
-         if (lastId !== navId) {
-             lastId = navId;
-             // Set/remove active class
-             menuItems
-               .removeClass("active")
-               .filter("[href=#"+navId+"]").addClass("active");
-         }
-       }
+        updateCurrId(navId);
+      }
     }); // end bind to scroll
   };
 }
