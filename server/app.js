@@ -3,6 +3,11 @@ if (Meteor.isServer) {
     
     if (Projects.find().count() === 0) {
 
+        // these would be better in a json file
+        // but I wanted to play around with mongo
+
+        // possible fields:
+        // title, url, src, img, tech, desc
         var bootstrapData = [
           {
             title: 'Portfolio', 
@@ -11,38 +16,6 @@ if (Meteor.isServer) {
             tech : ['Meteor', 'Semantic UI', 'Heroku'],
             desc : 'This site! Simple single page app to experiment with new frameworks.'
           }
-
-          /*, {
-            title: 'Portfolio', 
-            url  : 'https://wwww.google.com',
-            src  : 'https://wwww.google.com',
-            img  : '/images/ssplaceholder.png',
-            tech : ['Meteor', 'Semantic UI'],
-            desc : 'This site! ent with new frameworks.'
-          }, {
-            title: 'Portfolio', 
-            src  : 'https://wwww.google.com',
-            tech : ['Meteor', 'Semantic UI'],
-            desc : 'This site! Simple single page app to experiment with new frameworks and a bit longer.'
-          }, {
-            title: 'Portfolio', 
-            url  : 'https://wwww.google.com',
-            tech : ['Meteor', 'Semantic UI'],
-            desc : 'This site! Simple single paget with new frameworks.'
-          }, {
-            title: 'Portfolio', 
-            url  : 'https://wwww.google.com',
-            src  : 'https://wwww.google.com',
-            tech : ['Meteor', 'Semantic UI'],
-            desc : 'This site! Simple single page app to eith lorem ipsum new frameworks.'
-          }, {
-            title: 'Portfolio', 
-            url  : 'https://wwww.google.com',
-            src  : 'https://wwww.google.com',
-            tech : ['Meteor', 'Semantic UI'],
-            desc : 'This site! Simple single page app to experiment with new frameworks. more ipsum bacon is tasty.'
-          }
-          */
         ];
 
         _.each(bootstrapData, function(doc) { 
