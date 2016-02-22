@@ -82,6 +82,12 @@ main {
             .button {
                 width: 14rem;
             }
+
+            .container {
+                @media only screen and (max-width : @largestMobileScreen) {
+                    max-width: 16rem !important;
+                }
+            }
         }
     }
 }
