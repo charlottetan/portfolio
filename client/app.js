@@ -112,13 +112,11 @@ if (Meteor.isClient) {
       let href = $(this).attr("href");
       let offsetTop = href === "#home" ? 0 : $(href + "-section").offset().top-navMenuHeight;
       
+      updateCurrId(href.slice(1, href.length));
+      
       $('html, body').stop().animate({ 
           scrollTop: offsetTop
-      }, 300, function() {
-        // select the targeted link 
-        // slice removes the '#'
-        updateCurrId(href.slice(1, href.length));
-      });
+      }, 300);
       e.preventDefault();
     });
 
