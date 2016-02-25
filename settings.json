@@ -1,6 +1,6 @@
 {
   "PrerenderIO": {
-    "prerenderServiceUrl": "http://localhost:3000/",
+    "prerenderServiceUrl": "http://localhost:7737/",
     "token": "MJ2Hc2zTgVAxbhwk41KX"
   }
 }
