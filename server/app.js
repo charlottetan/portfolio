@@ -1,11 +1,4 @@
 if (Meteor.isServer) {
-    let connectHandlers = WebApp.connectHandlers;
-    connectHandlers.use(function(req, res, next) {
-        console.log("detected");
-        res.setHeader("Access-Control-Allow-Origin", "*");
-        return next();
-    });
-
     Meteor.startup(function () {
 
         if (Projects.find().count() === 0) {
