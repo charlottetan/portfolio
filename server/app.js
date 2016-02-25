@@ -9,14 +9,14 @@ if (Meteor.isServer) {
             // possible fields:
             // title, url, src, img, tech, desc
             let bootstrapData = [{
-                title: 'Portfolio', 
+                title: 'Portfolio',
                 url  : 'http://charlottetan.herokuapp.com',
                 src  : 'https://github.com/charlottetan/portfolio',
                 tech : ['Meteor', 'Semantic UI', 'Heroku'],
                 desc : 'This site! Simple single page app to experiment with new frameworks.'
             }];
 
-            _.each(bootstrapData, function(doc) { 
+            _.each(bootstrapData, function(doc) {
                 Projects.insert(doc);
             });
         }
@@ -25,4 +25,17 @@ if (Meteor.isServer) {
     Meteor.publish("projects", function() {
         return Projects.find();
     });
+
+    // Prerender settings
+    let PrerenderNode = Meteor.npmRequire('prerender-node');
+    let prerenderSettings = Meteor.settings.PrerenderIO;
+
+    if (prerenderSettings !== undefined) {
+        PrerenderNode.set('prerenderToken', Meteor.settings.PrerenderIO.token);
+        //PrerenderNode.set('prerenderServiceUrl', Meteor.settings.PrerenderIO.prerenderServiceUrl);
+    }
+
+    PrerenderNode.set('protocol', 'https');
+
+    WebApp.connectHandlers.use(PrerenderNode);
 }
