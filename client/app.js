@@ -58,7 +58,6 @@ if (Meteor.isClient) {
     // run these on load
     calcMinHeight()
     resizeHeights();
-    analytics.page('root');
   };
 
   Template.portfolio.helpers({
