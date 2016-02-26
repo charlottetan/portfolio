@@ -1,4 +1,5 @@
 if (Meteor.isServer) {
+
     Meteor.startup(function () {
 
         if (Projects.find().count() === 0) {
@@ -37,9 +38,5 @@ if (Meteor.isServer) {
 
     PrerenderNode.set('protocol', 'https');
 
-    WebApp.connectHandlers.use(function(req, res, next) {
-        console.log(req.headers);
-        next();
-    });
     WebApp.connectHandlers.use(PrerenderNode);
 }
