@@ -11,7 +11,7 @@ if (Meteor.isServer) {
             // title, url, src, img, tech, desc
             let bootstrapData = [{
                 title: 'Portfolio',
-                url  : 'http://charlottetan.herokuapp.com',
+                url  : 'https://charlottetan.herokuapp.com',
                 src  : 'https://github.com/charlottetan/portfolio',
                 tech : ['Meteor', 'Semantic UI', 'Heroku'],
                 desc : 'This site! Simple single page app to experiment with new frameworks.'
