@@ -4,15 +4,21 @@
 
 Experiment with new frameworks.
 
-## Frameworks used
+## Technologies
 
-* [Meteor](https://www.meteor.com/) - Full stack JavaScript framework
+* [Meteor](https://www.meteor.com) - Full stack JavaScript framework
 
   Generated a lot of excitement and advertises itself as being easy to use and great for building websites quickly.
 
-* [Semantic UI](http://semantic-ui.com/) - Front end framework
+* [MongoDB](https://www.mongodb.org) - NoSQL database that comes for free with Meteor
+
+* [Semantic UI](http://semantic-ui.com) - Front end framework
 
   Wanted to use something other than [Bootstrap](http://getbootstrap.com/) and liked that it focused on semantics and natural language.
+
+* [Prerender](https://prerender.io) - [Node](https://nodejs.org) server that uses [phantomjs](http://phantomjs.org) to render a javascript-rendered page as HTML
+
+  Allows JS apps to be crawled and indexed by search engines and social media websites. Added caching with MongoDB using [mLab](https://mlab.com)
 
 * [Heroku](https://www.heroku.com) - Cloud platform for deployment
 
@@ -36,7 +42,7 @@ Experiment with new frameworks.
 
 ### Deployment
 * The site was initially deployed on [charlottetan.meteor.com](http://charlottetan.meteor.com). Deployment was super easy and pain-free but the site takes awhile to spin up after it goes to sleep.
-* Heroku has no official support for Meteor at this time but has a number of Meteor buildpacks. I ended up using [jordansissel's](https://elements.heroku.com/buildpacks/jordansissel/heroku-buildpack-meteor).
+* Heroku has no official support for Meteor at this time but has a number of Meteor buildpacks. I use [jordansissel's](https://elements.heroku.com/buildpacks/jordansissel/heroku-buildpack-meteor).
 
 ### General
 * Fixed backgrounds can cause browsers to lag because the entire div (or page) gets redrawn during the scroll. [Remy Sharp](https://remysharp.com/2013/06/07/insights-into-rendering-performance) provides an elegant solution to this issue.

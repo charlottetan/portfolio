@@ -13,7 +13,7 @@ if (Meteor.isServer) {
                 title: 'Portfolio',
                 url  : 'https://charlottetan.herokuapp.com',
                 src  : 'https://github.com/charlottetan/portfolio',
-                tech : ['Meteor', 'Semantic UI', 'Heroku'],
+                tech : ['Meteor', 'MongoDB', 'Semantic UI', 'Prerender', 'Heroku'],
                 desc : 'This site! Simple single page app to experiment with new frameworks.'
             }];
 
