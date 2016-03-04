@@ -1,4 +1,4 @@
 {
     "prerender-node" : "2.2.0",
-    "prerender-node-mongo" : "0.0.4"
+    "prerender-node-mongo" : "0.0.5"
 }
