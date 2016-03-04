@@ -255,7 +255,7 @@
       }
     },
     "prerender-node-mongo": {
-      "version": "0.0.4",
+      "version": "0.0.5",
       "dependencies": {
         "mongodb": {
           "version": "2.1.7",

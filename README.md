@@ -10,22 +10,22 @@ Experiment with new frameworks.
 
   Generated a lot of excitement and advertises itself as being easy to use and great for building websites quickly.
 
-* [MongoDB](https://www.mongodb.org) - NoSQL database that comes for free with Meteor
+* [MongoDB](https://www.mongodb.org) - NoSQL database that comes with Meteor, hosted by [mLab](https://mlab.com)
 
 * [Semantic UI](http://semantic-ui.com) - Front end framework
 
-  Wanted to use something other than [Bootstrap](http://getbootstrap.com/) and liked that it focused on semantics and natural language.
+  Wanted to use something other than [Bootstrap](http://getbootstrap.com/) and liked that it focuses on semantics and natural language.
 
-* [Prerender](https://prerender.io) - [Node](https://nodejs.org) server that uses [phantomjs](http://phantomjs.org) to render a javascript-rendered page as HTML
+* [Prerender](https://prerender.io) - Service that uses [phantomjs](http://phantomjs.org) to render a javascript-rendered page as HTML
 
-  Allows JS apps to be crawled and indexed by search engines and social media websites. Added caching with MongoDB using [mLab](https://mlab.com)
+  Allows JS apps to be crawled and indexed by search engines and social media websites. Added caching with MongoDB using [prerender-node-mongo](https://github.com/charlottetan/prerender-node-mongo)
 
 * [Heroku](https://www.heroku.com) - Cloud platform for deployment
 
 ## Notes
 
 ### Meteor
-* **Everything is rendered using JavaScript.** This impacts SEO, and presents some challenges if your visitor disables JS. Server side rendering is used to work around this.
+* **Everything is rendered using JavaScript.** This impacts SEO, and presents some challenges if your visitor disables JS. I used [Prerender](https://prerender.io) to work around SEO issues.
 * The templating engine is straightforward and easy to use.
 * There is a great ecosystem of plugins and community.
 * The built-in aggregation and minification of CSS and JS files is awesome.
@@ -46,5 +46,4 @@ Experiment with new frameworks.
 
 ### General
 * Fixed backgrounds can cause browsers to lag because the entire div (or page) gets redrawn during the scroll. [Remy Sharp](https://remysharp.com/2013/06/07/insights-into-rendering-performance) provides an elegant solution to this issue.
-* Some background images from [Subtle Patterns](http://subtlepatterns.com/).
-* Design is hard.
+* Some images from [Subtle Patterns](http://subtlepatterns.com/).
