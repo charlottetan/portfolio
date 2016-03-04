@@ -37,14 +37,14 @@ if (Meteor.isServer) {
 
         // npm modules
         let PrerenderNode = Meteor.npmRequire('prerender-node');
-        let PrerenderMongo;
+        let PrerenderNodeMongo;
 
         // environment specific settings
         if (process.env.NODE_ENV === "development") {
             console.log("setting up localhost properties");
 
             PrerenderNode.set('prerenderServiceUrl', Meteor.settings.PrerenderIO.localhostPrerenderServiceUrl);
-            // for prerender mongo
+            // for prerender node mongo
             process.env.MONGOLAB_URI = Meteor.settings.localhostMongoUri;
         } else {
             PrerenderNode.set('protocol', 'https');
@@ -53,46 +53,14 @@ if (Meteor.isServer) {
         PrerenderNode.set('prerenderToken', Meteor.settings.PrerenderIO.token);
 
         // has to be after env props
-        PrerenderMongo = Meteor.npmRequire('prerender-mongo');
+        PrerenderNodeMongo = Meteor.npmRequire('prerender-node-mongo');
 
         // wrappers to fix npm module
-        PrerenderNode.set('beforeRender', function(req, done) {
-            console.log('beforeRender');
-
-            // set up req
-            if (req.prerender === undefined) {
-                req.prerender = {
-                    url: req.url
-                };
-            }
-
-            // set up res
-            let res = {}
-            res.send = function(statusCode, value) {
-                return done(null, {body: value, status: statusCode});
-            };
-
-            // finally call prerenderMongo with our new vars
-            PrerenderMongo.beforePhantomRequest(req, res, done);
-        });
-
-        PrerenderNode.set('afterRender', function(err, req, prerender_res) {
-            console.log('afterRender');
-
-            req.prerender.statusCode = prerender_res.statusCode;
-            req.prerender.documentHTML = prerender_res.body;
-
-            // pass empty res since it's not used in prerenderMongo's after
-            let res = {};
-
-            // empty next function
-            let next = function() {};
-
-            PrerenderMongo.afterPhantomRequest(req, res, next);
-        });
+        PrerenderNode.set('beforeRender', PrerenderNodeMongo.beforeRender);
+        PrerenderNode.set('afterRender', PrerenderNodeMongo.afterRender);
 
         // use the modules
-        WebApp.connectHandlers.use(PrerenderMongo);
+        WebApp.connectHandlers.use(PrerenderNodeMongo);
         WebApp.connectHandlers.use(PrerenderNode);
     }
 }
